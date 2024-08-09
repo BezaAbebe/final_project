@@ -162,5 +162,7 @@ cython_debug/
 #.idea/
 
 US_Accidents_March23.csv
+clean_data.csv
+
 .env
 .DS_Store
