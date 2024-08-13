@@ -41,4 +41,4 @@ o	Supervised Learning Notebook
 (https://colab.research.google.com/drive/1gMwxHGdMVFF3A9OC-ijTERmujPkdWa6_)
 Model Initialization and Optimization
 The model was initialized using the following code:
-![image](https://github.com/user-attachments/assets/9f64f03d-ee74-4de4-9f65-24430f7aa856)
+
