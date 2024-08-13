@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations - Accident Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top" shadow>
+        <div class="container">
+            <a class="navbar-brand" href="../template/index.html"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data-cleaning.html">Data Cleaning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unsupervised.html">Unsupervised ML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="supervised.html">Supervised ML</a>
+                    </li>
+                        <a class="nav-link" href="/model_predict">Predict</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <!-- Include the same footer as in index.html -->
+    <div class="container">
+        <h1>Supervised Learning</h1>
+        <h2 class="display-5 fw-semibold"> Random Forest Decision Tree</h2>
+
+<p>Initially, we cleaned the raw dataset in the data cleaning section of the notebook, transforming it into a more manageable format. Data cleaning is a crucial step in the data preprocessing pipeline for machine learning, involving the identification and correction of errors or inconsistencies to ensure high-quality data that is suitable for analysis or model training. Additional preprocessing was required to prepare the data for modeling, specifically for the Random Forest model.</p>
+
+<h3>Data Preprocessing</h3>
+
+<p>We loaded the cleaned data from our S3 bucket in a manner similar to the data cleaning section. The preprocessing steps included:</p>
+
+<ul>
+    <li><strong>Feature Selection:</strong> We removed irrelevant features that do not contribute to model accuracy.</li>
+    <li><strong>Feature Scaling: </strong> We categorized and binned certain columns and converted some features to boolean values for future one-hot encoding.</li>
+    <li><strong>Sampling: </strong> To reduce computational load, we sampled 20% of the data for training and testing.</li>
+</ul>
+
+<p>Following these steps, we applied Label Encoding to convert categorical features into numerical labels, setting the stage for model training with a Random Forest classifier.</p>
+
+<img src="./assets/images/season_bin.png" alt="Data Binning Example" style="width: 75%;" class="img-fluid">
+<br>
+<br>
+<h3>Predictive Modeling</h3>
+
+<p>We employed predictive modeling to classify and forecast the severity of traffic accidents using the Random Forest model. the random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.  </p>
+<img src="./assets/images/rf_example.png" alt="Data Binning Example" style="width: 70%;" class="img-fluid">
+
+<h6>Model Optimization Process</h6>
+<ul>
+    <li><strong>Parameter Tuning:</strong> </li>
+    <ul>
+        <li>n_estimators: Tested values: 100, 200, 300, 500, 750, 1000 </li>
+        <li>max_depth:: Tested values: 10, 15, 20, 35 </li>
+    </ul>   
+    <li><strong>Class Imbalance Handling: </strong></li>
+    <ul>
+        <li>Applied class_weight='balanced_subsample' to address underrepresented classes.</li>
+    </ul>    
+    <li><strong>Data Resampling: </strong></li>
+    <ul>
+        <li>Resampled data at different percentages: 3%, 5%, 10%, 20%</li>
+        <li>Optimal Result: Achieved with 20% sampling of data.</li>
+    </ul>  
+    <ul>
+</ul>
+<p> The image below indicates the final model configuration. </p>
+<img src="./assets/images/optimization.png" alt="Random Forest Model Optimization"style="width: 70%;" class="img-fluid">
+<br>
+<br>
+
+<h3>Classification Report</h3>
+<!------------------------------------------------->
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th></th>
+        <th>Precision</th>
+        <th>Recall</th>
+        <th>F1-Score</th>
+        <th>Support</th>
+    </tr>
+    <tr>
+        <td>Non-severe</td>
+        <td>0.92</td>
+        <td>0.83</td>
+        <td>0.87</td>
+        <td>184,051</td>
+    </tr>
+    <tr>
+        <td>Severe</td>
+        <td>0.35</td>
+        <td>0.55</td>
+        <td>0.43</td>
+        <td>30,415</td>
+    </tr>
+    <tr>
+        <td><strong>Accuracy</strong></td>
+        <td></td>
+        <td></td>
+        <td><strong>0.79</strong></td>
+        <td>214,466</td>
+    </tr>
+    <tr>
+        <td>Macro avg</td>
+        <td>0.64</td>
+        <td>0.69</td>
+        <td>0.65</td>
+        <td>214,466</td>
+    </tr>
+    <tr>
+        <td>Weighted avg</td>
+        <td>0.84</td>
+        <td>0.79</td>
+        <td>0.81</td>
+        <td>214,466</td>
+    </tr>
+</table>
+
+<p>The classification report shows how well the model performs for each class:</p>
+
+<p>Overall, the model is strong in predicting "Non-severe" but less effective for "Severe" cases.The Random Forest model is 79% accurate. However, to understand how well the model performed, we need to compare the results for non-severe versus severe accidents.</p>
+
+<p>The model performed well in predicting non-severe accidents, with a precision of 92% and a recall of 83%. This means the model accurately identifies most non-severe accidents. This is important for traffic management systems because it accurately identifies most low-severity accidents.</p>
+
+<p>However, he model struggled with predicting severe accidents. It achieved only 35% precision in predicting severe accidents, meaning it misclassified 65% of cases as severe when they were not. The recall for severe accidents is 55%, indicating the model catches a little over half of the actual severe accidents but misses about 45%. Due to the lower precision and recall scores for severe accidents, there is a potential risk for the system, as it may misclassify severe accidents, either failing to predict them or overestimating their likelihood.</p>
+
+<h3>Recommendations</h3>
+
+<p>Further efforts could include experimenting with different hyperparameters or balancing techniques to continue improving the model's ability to accurately predict severe cases. Continued fine-tuning will be important as the model is applied to real-world data to ensure it performs consistently well across all classes.</p>
+
+        <!-- Placeholder for charts or maps -->
+        <div class="img-placeholder bg-secondary"></div>
+    </div>
+
+
+        <!-- FOOTER -->
+        <footer class="text-center mt-4 py-4 bg-light">
+            <p>2024 Accident Severity Prediction Project</p>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Cleaning - Accident Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top" shadow>
+        <div class="container">
+            <a class="navbar-brand" href="../template/index.html"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data-cleaning.html">Data Cleaning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unsupervised.html">Unsupervised ML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="supervised.html">Supervised ML</a>
+                    </li>
+                        <a class="nav-link" href="/model_predict">Predict</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>>
+    <br>
+
+
+<!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold"><strong>Data Processing and Cleaning</h1>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-left">
+            <div class="col-lg-10">
+                <div class="d-flex mb-3">
+                    <div>
+                        <h5>Data Source</h5>
+                        <p>We obtained our dataset from <a href="https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents" target="_blank">Kaggle.com</a>, which came with a Usage Policy and Legal Disclaimer. The dataset is distributed under the Creative Commons Attribution-Noncommercial-ShareAlike license (CC BY-NC-SA 4.0). We ensured that we adhered to these guidelines by using the dataset strictly for non-commercial, research, or academic purposes and citing the appropriate sources.</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex mb-3">
+                    <div>
+                        <h5>Initial Data Handling</h5>
+                        <p>After downloading the dataset, we noticed it contained over 7 million rows and 48 columns, which made it quite large. To manage this efficiently, we decided to store the dataset in an AWS S3 Bucket. This allowed us to handle the data more effectively during the cleaning process. We imported the data into our notebook using a method that illustrated below.</p>
+
+                        <img src="./assets/images/import_csv_partone.png" alt="Data Processing" class="img-fluid" style="max-width: 60%">
+                        <br>
+                        <br>
+                        <img src="./assets/images/import_csv_parttwo.png" alt="Data Processing" class="img-fluid" style="max-width: 60%">
+
+                    </div>
+                </div>
+                
+                <div class="d-flex mb-3">
+                    <div>
+                        <h5>Data Cleaning Process</h5>
+                        <p>We began cleaning this large dataset by applying various functions to recognize and address incomplete, incorrect, inaccurate, or irrelevant data. This process involved:</p>
+                        <ul>
+                            <li><strong>Modifying:</strong> Correcting errors in the data.</li>
+                            <li><strong>Replacing:</strong> Substituting missing or incorrect data with appropriate values.</li>
+                            <li><strong>Deleting:</strong> Removing rows or columns that were irrelevant.</li>
+                        </ul>
+                        <img src="./assets/images/data_cleaning.png" alt="Data Processing" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <div>
+                        <h5>Finalizing the Cleaned Data</h5>
+                        <p>After completing the data exploration and verification, we converted the cleaned data back to a CSV format and saved it in the existing S3 Bucket as our clean data for further processing.</p>
+                        <img src="./assets/images/clean_csv.png" alt="Data Processing" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="text-center mt-4 py-4 bg-light">
+        <p>2024 Accident Severity Prediction Project</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+        <!----------------------------------------------------------------------------------->
+    

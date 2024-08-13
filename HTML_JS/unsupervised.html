@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Accident Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top" shadow>
+        <div class="container">
+            <a class="navbar-brand" href="../template/index.html"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data-cleaning.html">Data Cleaning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unsupervised.html">Unsupervised ML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="supervised.html">Supervised ML</a>
+                    </li>
+                        <a class="nav-link" href="/model_predict">Predict</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+  
+    <!-- Page CONTENT -->
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Unsupervised Learning</h1>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unsupervised Learning Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="unsupervised-learning-section">
+                    <h3>Why Unsupervised Learning? </h3>
+                    <p>  We wanted to explore underlying patterns that may not be obvious in the data through clustering. Further, we wanted to simplify the dataset 
+                        and make it easier to visualize and understand by using PCA (Principal Component Analysis). </p>
+                     
+                    <h4>Data Sampling </h4>
+                    <p>Our clean data file had about 5 million records and drammatically reduced computing speed. We reduced the data size by selecting a representative 2% 
+                        sample using sklearn.model_selection's  train_test_split. This resulted in about 100,000 records in a sample that that mimics the original dataset
+                         in its composition</p>
+
+                    <h4>Binning and Dropping unwanted columns </h4>
+                    <p> We binned the "Weather_Condition" column which had about 130 unique weather decriptors into 7 bins within a new column, which allowed us to drop the 
+                             initial column with 130 unique values. This helps in cleaning the data and reducing the 'noise' and reducing features created when encoding the data. We 
+                             also removed several columns including 'Description', 'Country', and 'Civil_Twilight'  </p>
+                    
+                    <h4>Categorical Data Encoding </h4>
+                    <p>We used the <code>pd.get_dummmies</code> function to encode remaining categorical values  </p>
+
+                    <h4>Transforming Boolean values</h4>
+                    <p>Boolean values were Converted to 1 0r 0 </p>
+
+                    <h4>Scaling numerical features </h4>
+                    <p>Columns containing continuous numerical values were scaled using <code>StandardScaler()</code> and <code>scaler.fit_transform</code> </p>
+
+                    <h3>K-Means Clustering</h3>
+                    <p>The optimal number of clusters was determined to be three (K=3) using the elbow curve. The K-Means model was then run with K=3. The resulting plot illustrates how the severity of accidents varies with duration, revealing the distribution of predictions across different clusters.</p>
+
+                        <div class="text-center mt-5">
+                            <img src="./assets/images/time_duration.png".jpg alt="time_duration 1" class="img-fluid">
+                            <br>
+                            <img src="./assets/images/coordinates.png".jpg alt="coordinates" class="img-fluid">
+                        </div>    
+
+                    <p>Cluster 1 includes the majority of predictions at all severity levels, particularly those corresponding to lower time durations. Cluster 0, represented by a large number of blue dots, contains the majority of data points, while Clusters 1 and 2 have significantly fewer data points. 
+                        However, the overlap between clusters suggests that the coordinates alone might not be strong predictors for the clusters.</p>
+
+
+                    <h3>Principal Component Analysis (PCA)</h3>
+                    <pp>To further optimize the clustering, PCA was applied. The explained variance ratio indicated that the first principal component (PC1) accounted for nearly 100% of the variance.</p>
+
+                    <p>Given the dominance of PC1, it was plotted against itself, revealing that Cluster 0 overwhelmingly dominates at very low levels, followed by Cluster 2. Cluster 3 primarily consists of outliers.</p>
+                        <div class="text-center mt-5">
+                            <img src="./assets/images/pc1.png".jpg alt="pc1 v pc1" class="img-fluid">
+                        </div>   
+                    <p>Further examination through plots of PC1 vs. PC2 and PC1 vs. PC3 confirmed that Cluster 0 remains predominant across these comparisons.</p>
+
+                        <div class="text-center mt-5">
+                            <img src="./assets/images/pc1pc2.png".jpg alt="pc1 v pc2" class="img-fluid">
+                            <br>
+                            <img src="./assets/images/pc1pc3.png".jpg alt="pc1 v pc3" class="img-fluid">
+                        </div>   
+                </div>
+            </div>
+        </div>
+
+        <!-- Image at the End of the Page -->
+<div class="text-center mt-5">
+    <img src="./assets/images/us_ml.png".jpg" alt="End of Page Image" class="img-fluid">
+</div>
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   
+</body>
+</html>
