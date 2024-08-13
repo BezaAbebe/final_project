@@ -2,13 +2,27 @@
 Project 4
 
 Traffic Accident Severity Prediction
-Introduction
-This project aims to predict the severity of traffic accidents based on factors such as weather, road conditions, and traffic. Accurate predictions can assist law enforcement and emergency services in better preparation, potentially saving lives and resources. It can also alert drivers to exercise caution or alter their routes to avoid severe accidents.
-Slide 6: Tools and Technologies
-•	Technologies Used:
-o	AWS S3 for data storage.
-o	Python for data cleaning and processing.
-o	Pandas for data manipulation.
+##Introduction
+
+This project aims to predict the severity of traffic accidents based on factors such as weather, road conditions, and traffic. Accurate predictions can assist law enforcement and emergency services in better preparation, potentially saving lives and resources. The focus of our analysis is on the impact of the traffic accident on the duration of traffic. It can also alert drivers to exercise caution or alter their routes to avoid severe accidents. 
+
+
+##Tools and Technologies
+1. Python Libraries:
+
+ - Scikit-learn: For both Random Forest and K-means clustering implementations.
+ - Pandas: For data manipulation and preprocessing.
+ - NumPy: For numerical operations.
+ - Matplotlib/hvplot/holoviews: For data visualization.
+   
+2. Machine Learning Platforms:
+- AWS S3: storing large datasets and model.
+- Google Colab: For running Python code in a cloud environment as our datasets were large.
+
+  
+Data Storage and Management:
+- AWS S3: For storing large datasets used for training and validation.
+
 
 
 Project Structure
