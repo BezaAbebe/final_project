@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <style>
+        body {
+            background-color: lightblue; /* This sets the background color to light blue */
+        }
+        </style>
+    
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Accident Prediction</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html_js/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html_js/data-cleaning.html">Data Cleaning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html_js/unsupervised.html">Unsupervised ML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html_js/supervised.html">Supervised ML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/model_predict">Predict</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Traffic Accident Prediction</h2>
+        <form action="/predict" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" class="form-control" placeholder="Enter State">
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (F)</label>
+                <input type="number" id="temperature" name="temperature" class="form-control" placeholder="Enter Temperature">
+            </div>
+            <div class="form-group">
+                <label for="wind_speed">Wind Speed (mph)</label>
+                <input type="number" id="wind_speed" name="wind_speed" class="form-control" placeholder="Enter Wind Speed">
+            </div>
+            <div class="form-group">
+                <label for="precipitation">Precipitation (in)</label>
+                <select id="precipitation" name="precipitation" class="form-control">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sunrise_sunset">Sunrise/Sunset</label>
+                <select id="sunrise_sunset" name="sunrise_sunset" class="form-control">
+                    <option value="0">Day</option>
+                    <option value="1">Night</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weather_bin">Weather Condition</label>
+                <select id="weather_bin" name="weather_bin" class="form-control">
+                    <option value="0">Cloudy</option>
+                    <option value="1">Fair</option>
+                    <option value="2">Hazy</option>
+                    <option value="3">Rainy</option>
+                    <option value="4">Snow</option>
+                    <option value="5">Tornado</option>
+                    <option value="6">Windy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hour_bin">Time of Day</label>
+                <select id="hour_bin" name="hour_bin" class="form-control">
+                    <option value="0">Early Morning</option>
+                    <option value="1">Morning</option>
+                    <option value="2">Morning Rush Hour</option>
+                    <option value="3">Midday</option>
+                    <option value="4">Evening Rush Hour</option>
+                    <option value="5">Late Night</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="time_duration_bin">Duration of Travel</label>
+                <select id="time_duration_bin" name="time_duration_bin" class="form-control">
+                    <option value="0">Short</option>
+                    <option value="1">Medium</option>
+                    <option value="2">Long</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="distance_bin">Distance Traveled</label>
+                <select id="distance_bin" name="distance_bin" class="form-control">
+                    <option value="0">Very Short</option>
+                    <option value="1">Short</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Long</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="season">Season</label>
+                <select id="season" name="season" class="form-control">
+                    <option value="0">Spring</option>
+                    <option value="1">Summer</option>
+                    <option value="2">Fall</option>
+                    <option value="3">Winter</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        <div class="result-container mt-5">
+            <h3>Prediction Result</h3>
+            <p id="prediction-result" class="alert alert-info">Awaiting input...</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
