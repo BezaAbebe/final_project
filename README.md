@@ -1,8 +1,7 @@
 # final_project
 Project 4
 
-Traffic Accident Severity Prediction
-##Introduction
+# Traffic Accident Severity Prediction
 
 
 ## Overview
@@ -65,13 +64,13 @@ The large dataset is stored in an AWS S3 bucket.
 
 ## Project Structure
 This project is divided into four main parts:
-1.	Data Cleaning and Visualization
+1. Data Cleaning and Visualization
    - Tasks: Cleaning raw data, handling missing values, and visualizing key patterns and trends.
    - Data Cleaning Notebook: Due to large size, was not able to import the notebook in github
         - https://colab.research.google.com/drive/1gSpBv1Bet5-BKPIqa42it_991C3GtS_z
-2.	Preprocessing and Exploration
+2. Preprocessing and Exploration
     - Preparing data for modeling by scaling, encoding, and exploring relationships between features.
-3.	Modeling and Optimization
+3. Modeling and Optimization
     - Unsupervised Learning: Applying clustering techniques and Principal Component Analysis (PCA) to understand           data distribution and reduce dimensionality.
     - Unsupervised Learning Notebook: Due to large size, was not able to import the notebook in github
            - https://colab.research.google.com/drive/1NXYiR2uQyFVCG0RJ2h96cqmm8X00TzJ2
@@ -86,7 +85,7 @@ This project is divided into four main parts:
 
 
 # Unsupervised Learning
-     - Applying clustering techniques and Principal Component Analysis (PCA) to understand data distribution and reduce dimensionality.
+     - Applying clustering techniques and Principal Component Analysis (PCA) to understand data distribution and 	reduce dimensionality.
      - KMeans was utilized to find an appropriate value for K, which was k = 3. 
 	PCA was run for for 3 Principal Components, with PCA1, attributing almost 100% of the 	
 	Variance in the dataset. 
@@ -94,7 +93,7 @@ This project is divided into four main parts:
 
 
 
---
+
 
 # Supervised Learning (Random Forest)
 
