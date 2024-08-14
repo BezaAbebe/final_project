@@ -31,11 +31,16 @@ The large dataset is stored in an AWS S3 bucket.
 ## Files and Directories
 - app.py: The main Flask application file located in the root directory.
 - HTML_JS/: Contains all HTML and JS files, including:
+     - assets: Static assets like CSS and images, served through custom routes.
+            - CSS
+            - images
      - about.html
-     - dashboard.html
-     - data-cleaning.html
+     - data_cleaning.html
      - supervised.html
-- assets/: Static assets like CSS and images, served through custom routes.
+     - unsupervised.html
+- template: contains htmls
+       - index.html
+       - model_predict.html
 
 ## Tools and Technologies
 1. Python Libraries:
@@ -56,7 +61,7 @@ The large dataset is stored in an AWS S3 bucket.
      - HTML
      - Bootstrap: For responsive web design.
      - Bootstrap API: api.bootstrap.com
-
+--
 
 ## Project Structure
 This project is divided into four main parts:
@@ -79,8 +84,17 @@ This project is divided into four main parts:
  - odel Training: Fitted a Random Forest model using RandomForestClassifier from Scikit-learn.
  - Prediction and Evaluation: Evaluated the model's performance using metrics such as accuracy, precision, and recall.
 
+--
+# Unsupervised Learning
+     - Applying clustering techniques and Principal Component Analysis (PCA) to understand data distribution and reduce dimensionality.
+     - KMeans was utilized to find an appropriate value for K, which was k = 3. 
+	PCA was run for for 3 Principal Components, with PCA1, attributing almost 100% of the 	
+	Variance in the dataset. 
+      - Further analysis to identify top 15 features related to PCA was performed
 
 
+
+--
 
 # Supervised Learning (Random Forest)
 
