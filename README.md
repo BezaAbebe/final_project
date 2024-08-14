@@ -10,19 +10,19 @@ This project focuses on predicting the severity of traffic accidents using machi
 
 ## Project Structre 
 
-####Data Source:
+#### Data Source:
 
 - The dataset was sourced from Kaggle.com and contains over 7 million rows and 48 columns.
 The large dataset is stored in an AWS S3 bucket.
 - The large dataset is stored in an AWS S3 bucket.
 
 
-##Data Cleaning:
+## Data Cleaning:
 - Incomplete, incorrect, inaccurate, or irrelevant data were identified and addressed.
 - Missing data imputation approaches were applied to two datasets before merging them into a single dataset.
 - Handled numerical and categorical data, followed by feature selection.
 
-##Modeling:
+## Modeling:
 - Multiple machine learning algorithms were explored, with the Random Forest model being a key component of the supervised learning approach.
 - The model was evaluated using metrics like Jaccard, F1-Score, Precision, Recall, and Time.
 
@@ -35,7 +35,7 @@ The large dataset is stored in an AWS S3 bucket.
      - supervised.html
 - assets/: Static assets like CSS and images, served through custom routes.
 
-##Tools and Technologies
+## Tools and Technologies
 1. Python Libraries:
 
  - Scikit-learn: For both Random Forest and K-means clustering implementations.
