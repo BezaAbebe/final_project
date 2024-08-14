@@ -5,7 +5,9 @@ Traffic Accident Severity Prediction
 ##Introduction
 
 
-##Overview
+## Overview
+
+
 This project focuses on predicting the severity of traffic accidents using machine learning algorithms, with an emphasis on the Random Forest model. The process involves extensive data cleaning, feature engineering, model training, and evaluation using various metrics. Accurate predictions can assist law enforcement and emergency services in better preparation, potentially saving lives and resources. The focus of our analysis is on the impact of the traffic accident on the duration of traffic. It can also alert drivers to exercise caution or alter their routes to avoid severe accidents. 
 
 ## Project Structre 
@@ -44,12 +46,12 @@ The large dataset is stored in an AWS S3 bucket.
  - Matplotlib/hvplot/holoviews: For data visualization.
    
 2. Machine Learning Platforms:
-- AWS S3: storing large datasets and model.
-- Google Colab: For running Python code in a cloud environment as our datasets were large.
+     - AWS S3: storing large datasets and model.
+     - Google Colab: For running Python code in a cloud environment as our datasets were large.
 
   
 3. Data Storage and Management:
-- AWS S3: For storing large datasets used for training and validation.
+     - AWS S3: For storing large datasets used for training and validation.
 4. Web Development and Presentation:
      - HTML
      - Bootstrap: For responsive web design.
@@ -77,8 +79,37 @@ This project is divided into four main parts:
  - odel Training: Fitted a Random Forest model using RandomForestClassifier from Scikit-learn.
  - Prediction and Evaluation: Evaluated the model's performance using metrics such as accuracy, precision, and recall.
 
+
+
+
+# Supervised Learning (Random Forest)
+
 ## Model Optimization Process
 - Parameter Tuning:
    - n_estimators: Tested values: 100, 200, 300, 500, 750, 1000
    - max_depth: Tested values: 10, 15, 20, 35
+     
+## Results
+
+- Classification Report
+     - Accuracy: 79%
+     - Precision for Non-severe: 92%
+     - Precision for Severe: 35%
+     - Recall for Severe: 55%
+ 
+Overall, the model is strong in predicting "Non-severe" cases but less effective for "Severe" cases. This indicates potential risks in misclassifying severe accidents, either by failing to predict them or overestimating their likelihood.
+
+## Recommendations
+
+Further efforts could include experimenting with different hyperparameters or balancing techniques to improve the model's ability to accurately predict severe cases. Continued fine-tuning will be important as the model is applied to real-world data to ensure it performs consistently well across all classes.
+
+
+
+
+
+
+
+
+
+
 
